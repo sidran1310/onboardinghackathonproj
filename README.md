@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Onboarding Portal
 
-## Getting Started
+A platform where new team members receive personalized onboarding checklists based on role, department, and level.
 
-First, run the development server:
+## Tech Stack
+- Next.js
+- Firebase (Authentication & Firestore)
+- Tailwind CSS
 
+## Setup Instructions
+
+### Prerequisites
+- Node.js (v18 or newer)
+- npm or yarn
+- Firebase account access
+
+### Installation
+
+1. Clone the repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repository-url>
+cd onboarding-portal
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+3. Firebase Setup
+- Ensure you have access to the Firebase project: `onboarding-portal-df83e`
+- The Firebase configuration is already set up in `firebase/config.js`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Populate the database with sample tasks
+```bash
+npm run setup-db
+```
 
-## Learn More
+5. Start the development server
+```bash
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+6. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `/app` - Next.js app directory with pages and routes
+- `/firebase` - Firebase configuration
+- `/services` - Firebase service functions (auth, tasks)
+- `/contexts` - React context providers
+- `/scripts` - Database setup scripts
 
-## Deploy on Vercel
+### API Routes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `/api/auth/register` - Register new users
+- `/api/auth/login` - User login
+- `/api/tasks` - Get tasks for current user
+- `/api/tasks/complete` - Mark tasks as completed
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Authentication
+
+The app uses Firebase Authentication with email/password. Users need to register with:
+- Email
+- Password
+- Role (developer, designer, manager, admin)
+- Department (engineering, design, product, marketing, sales, hr)
+- Level (entry, mid, senior, lead)
+
+### Database Structure
+
+Firestore collections:
+- `users` - User profiles with role, department, and level
+- `tasks` - Onboarding tasks with applicability criteria
+- `userTasks` - Tracks completed tasks for each user
