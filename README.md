@@ -1,19 +1,3 @@
-# Onboarding Portal
-
-A platform where new team members receive personalized onboarding checklists based on role, department, and level.
-
-## Tech Stack
-- Next.js
-- Firebase (Authentication & Firestore)
-- Tailwind CSS
-
-## Setup Instructions
-
-### Prerequisites
-- Node.js (v18 or newer)
-- npm or yarn
-- Firebase account access
-
 ### Installation
 
 1. Clone the repository
@@ -73,3 +57,20 @@ Firestore collections:
 - `users` - User profiles with role, department, and level
 - `tasks` - Onboarding tasks with applicability criteria
 - `userTasks` - Tracks completed tasks for each user
+
+# Onboarding Portal
+
+A platform where new team members receive personalized onboarding checklists based on role, department, and level.
+
+## Tech Stack
+- Next.js
+- Firebase (Authentication & Firestore)
+- Tailwind CSS
+
+## Setup Instructions
+
+### Prerequisites
+- Node.js (v18 or newer)
+- npm or yarn
+- Firebase account access
+
