@@ -91,7 +91,7 @@ export default function Dashboard() {
           <h1 className="text-3xl font-bold text-gray-900">Onboarding Dashboard</h1>
           <div>
             {userData && (
-              <div className="text-sm text-black mb-2">
+              <div className="text-sm text-gray-600 mb-2">
                 <span className="font-medium">{userData.role}</span> | {userData.department} | {userData.level}
               </div>
             )}
@@ -141,7 +141,7 @@ export default function Dashboard() {
                             <label
                               htmlFor={`task-${task.id}`}
                               className={`ml-3 block text-sm font-medium ${
-                                isCompleted ? 'text-black line-through' : 'text-black'
+                                isCompleted ? 'text-gray-400 line-through' : 'text-gray-700'
                               }`}
                             >
                               {task.title}
@@ -156,12 +156,12 @@ export default function Dashboard() {
                         <div className="mt-2 sm:flex sm:justify-between">
                           <div className="sm:flex">
                             <p className={`flex items-center text-sm ${
-                              isCompleted ? 'text-black' : 'text-black'
+                              isCompleted ? 'text-gray-400' : 'text-gray-500'
                             }`}>
                               {task.description}
                             </p>
                           </div>
-                          <div className="mt-2 flex items-center text-sm text-black sm:mt-0">
+                          <div className="mt-2 flex items-center text-sm text-gray-500 sm:mt-0">
                             <p>
                               Estimated time: {task.estimatedTime}
                             </p>
